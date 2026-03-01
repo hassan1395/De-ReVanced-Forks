@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-03-01T14:30:20",
-  "description": "# 1.0.0 (2026-03-01)",
+  "created_at": "2026-03-01T17:29:49",
+  "description": "# 1.0.0 (2026-03-01)\n\n\n### Bug Fixes\n\n* simplify release config, remove backmerge, add fetch-depth for CI ([b15a320](https://github.com/RookieEnough/De-ReVanced/commit/b15a3205de30c7a28e89f165d8f55698dc743247))",
   "download_url": "https://github.com/RookieEnough/De-ReVanced/releases/download/v1.0.0/patches-1.0.0.mpp",
   "signature_download_url": "",
   "version": "1.0.0"
