@@ -1,3 +1,1 @@
-plugins {
-    alias(libs.plugins.android.library) apply false
-}
+// Root build configuration - plugins are applied in submodules
