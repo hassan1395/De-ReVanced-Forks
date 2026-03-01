@@ -1,36 +1,31 @@
-rootProject.name = "morphe-patches"
-
 pluginManagement {
     repositories {
-        mavenLocal()
         gradlePluginPortal()
         google()
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/MorpheApp/registry")
-            credentials {
-                username = providers.gradleProperty("gpr.user").getOrElse(System.getenv("GITHUB_ACTOR") ?: "")
-                password = providers.gradleProperty("gpr.key").getOrElse(System.getenv("GITHUB_TOKEN") ?: "")
-            }
-        }
-        // Obtain baksmali/smali from source builds - https://github.com/iBotPeaches/smali
-        // Remove when official smali releases come out again.
-        maven { url = uri("https://jitpack.io") }
+        mavenCentral()
     }
 }
 
-plugins {
-    id("app.morphe.patches") version "1.1.1"
-}
-
-settings {
-    extensions {
-        defaultNamespace = "app.morphe.extension"
-
-        // Must resolve to an absolute path (not relative),
-        // otherwise the extensions in subfolders will fail to find the proguard config.
-        proguardFiles(rootProject.projectDir.resolve("extensions/proguard-rules.pro").toString())
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
     }
 }
 
-include(":patches:stub")
+rootProject.name = "morphe-patches"
+include(":patches")
+include(":extensions:shared")
+include(":extensions:shared:library")
+include(":extensions:cricbuzz")
+include(":extensions:cricbuzz:stub")
+include(":extensions:strava")
+include(":extensions:strava:stub")
+
+// Apply Android plugin to all stub and library modules
+gradle.beforeProject {
+    if (project.name.endsWith("stub") || project.name == "library") {
+        project.apply(plugin = "com.android.library")
+    }
+}
