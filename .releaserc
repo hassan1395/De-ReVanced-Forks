@@ -24,11 +24,10 @@
         }
       }
     ],
-    "gradle-semantic-release-plugin",
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "jq '.version=\"${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json"
+        "prepareCmd": "jq '.version=\"v${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json && sed -i 's/^version = .*/version = '${nextRelease.version}'/' gradle.properties && ./gradlew :patches:buildAndroid generatePatchesList"
       }
     ],
     [
