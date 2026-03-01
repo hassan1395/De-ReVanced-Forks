@@ -53,6 +53,9 @@ jobs:
           clean: true
 
       # Step 2: Run string checks on the crowdin branch
+      - name: Set gradlew executable
+        run: chmod +x gradlew
+
       - name: Check strings on crowdin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
