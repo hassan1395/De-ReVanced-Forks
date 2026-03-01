@@ -1,3 +1,17 @@
+<div align="center"> 
+<picture>
+    <source
+      width="512px"
+      media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/MorpheApp/.github/refs/heads/main/profile/assets/morphe-wordmark/morphe_wordmark_dark.svg"
+    />
+    <img 
+      width="512px"
+      src="https://raw.githubusercontent.com/MorpheApp/.github/refs/heads/main/profile/assets/morphe-wordmark/morphe_wordmark_light.svg"
+    />
+</picture>
+</div>
+
 <div align="center">
 
 # De-ReVanced
@@ -16,6 +30,12 @@
 [![Patches](https://img.shields.io/badge/Patches-13%20Apps-success?style=flat-square)](#supported-apps--patches)
 
 </div>
+
+<p align="center">
+  <a href="https://www.buymeacoffee.com/rookiez" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="120" alt="Buy Me A Coffee">
+  </a>
+</p>
 
 ---
 
@@ -37,46 +57,46 @@
 <tr>
 <td width="50%">
 
-### 📷 Google Photos
+### Google Photos
 `Spoof features` · `Backup control` · `GMS support` · `Extension` · `Restore backup toggle`
 
-### 📰 Google News
+### Google News
 `Custom tabs` · `GMS support` · `Extension`
 
-### 🎨 Pixiv
+### Pixiv
 `Hide ads`
 
-### 🏏 Cricbuzz
+### Cricbuzz
 `Disable ads` · `Extension`
 
-### 🎬 Disney+
+### Disney+
 `Skip ads`
 
-### 🖼️ Icon Pack Studio
+### Icon Pack Studio
 `Unlock Pro`
 
-### 🎞️ Letterboxd
+### Letterboxd
 `Hide ads` · `Unlock app icons`
 
 </td>
 <td width="50%">
 
-### 📄 Microsoft Lens
+### Microsoft Lens
 `Hide OneDrive migration`
 
-### 🔢 Photomath
+### Photomath
 `Spoof device ID` · `Signature detection` · `Unlock Plus` · `Bookpoint` · `Hide update popup`
 
-### 📧 Proton Mail
+### Proton Mail
 `Remove sent-from signature` · `Remove free accounts limit`
 
-### 📦 RAR
+### RAR
 `Hide purchase reminder`
 
-### 🎵 SoundCloud
+### SoundCloud
 `Offline sync` · `Disable telemetry` · `Hide ads`
 
-### 🏃 Strava
+### Strava
 `Group kudos` · `Hide distractions` · `Media download` · `Media upload` · `Disable quick edit` · `Password login` · `Block tracking` · `Unlock subscription` · `Disable upsell`
 
 </td>
