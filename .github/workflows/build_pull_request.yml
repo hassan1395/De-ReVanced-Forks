@@ -21,18 +21,9 @@ jobs:
           java-version: '17'
 
       - name: Cache Gradle
-        uses: burrunan/gradle-cache-action@v3
-
-      - name: Set gradlew executable
-        run: chmod +x gradlew
+        uses: burrunan/gradle-cache-action@v2
 
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew :patches:buildAndroid --no-daemon
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v6
-        with:
-          name: morphe-patches
-          path: patches/build/libs
+        run: ./gradlew build --no-daemon

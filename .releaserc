@@ -1,6 +1,10 @@
 {
   "branches": [
-    "main"
+    "main",
+    {
+      "name": "dev",
+      "prerelease": true
+    }
   ],
   "plugins": [
     [
@@ -16,14 +20,15 @@
         "releaseJson": {
           "path": "patches-bundle.json",
           "downloadUrlTemplate": "https://github.com/${owner}/${repo}/releases/download/v${version}/patches-${version}.mpp",
-          "signatureUrlTemplate": ""
+          "signatureUrlTemplate": "https://github.com/${owner}/${repo}/releases/download/v${version}/patches-${version}.mpp.asc"
         }
       }
     ],
+    "gradle-semantic-release-plugin",
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "jq '.version=\"v${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json && sed -i 's/^version = .*/version = '${nextRelease.version}'/' gradle.properties"
+        "prepareCmd": "jq '.version=\"${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json"
       }
     ],
     [
@@ -31,9 +36,9 @@
       {
         "assets": [
           "CHANGELOG.md",
-          "gradle.properties",
           "patches-bundle.json",
-          "patches-list.json"
+          "patches-list.json",
+          "gradle.properties"
         ],
         "message": "chore: Release v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
@@ -47,6 +52,13 @@
           }
         ],
         "successComment": false
+      }
+    ],
+    [
+      "@saithodev/semantic-release-backmerge",
+      {
+        "backmergeBranches": [{"from": "main", "to": "dev"}],
+        "clearWorkspace": true
       }
     ]
   ]
