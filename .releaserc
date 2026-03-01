@@ -1,10 +1,6 @@
 {
   "branches": [
-    "main",
-    {
-      "name": "dev",
-      "prerelease": true
-    }
+    "main"
   ],
   "plugins": [
     [
@@ -27,7 +23,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "jq '.version=\"v${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json && sed -i 's/^version = .*/version = '${nextRelease.version}'/' gradle.properties && ./gradlew :patches:buildAndroid generatePatchesList"
+        "prepareCmd": "jq '.version=\"v${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json && sed -i 's/^version = .*/version = '${nextRelease.version}'/' gradle.properties"
       }
     ],
     [
@@ -51,13 +47,6 @@
           }
         ],
         "successComment": false
-      }
-    ],
-    [
-      "@cleyrop-org/semantic-release-backmerge",
-      {
-        "backmergeBranches": [{"from": "main", "to": "dev"}],
-        "clearWorkspace": true
       }
     ]
   ]
